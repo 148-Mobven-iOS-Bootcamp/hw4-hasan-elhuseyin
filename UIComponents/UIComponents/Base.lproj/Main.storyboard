@@ -79,6 +79,30 @@
                                             <action selector="reloadButtonTapped:" destination="8R7-g3-9b9" id="xfH-1m-Kq8"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pEW-oC-oAG"/>
+                                    <barButtonItem title="goBack" image="arrow.backward" catalog="system" id="GMY-xf-pAM">
+                                        <connections>
+                                            <action selector="goBackButtonTapped:" destination="8R7-g3-9b9" id="zJG-3a-3mX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qIC-a4-GYv"/>
+                                    <barButtonItem title="goForward" image="arrow.forward" catalog="system" id="idQ-ua-6P7">
+                                        <connections>
+                                            <action selector="goForwardButtonTapped:" destination="8R7-g3-9b9" id="ss4-xD-gRe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="geo-B6-XxL"/>
+                                    <barButtonItem title="HTML" id="RwG-58-que">
+                                        <connections>
+                                            <action selector="htmlButtonTapped:" destination="8R7-g3-9b9" id="3jS-hu-pMz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LNW-FZ-6iT"/>
+                                    <barButtonItem title="openInSafari" image="safari" catalog="system" id="vlc-ir-GWi">
+                                        <connections>
+                                            <action selector="openInSafariButtonTapped:" destination="8R7-g3-9b9" id="PgJ-3G-plK"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -99,6 +123,10 @@
                     <navigationItem key="navigationItem" id="x9X-Is-1KR"/>
                     <connections>
                         <outlet property="activityIndicator" destination="hej-Yj-pi0" id="0OO-G2-3b8"/>
+                        <outlet property="goBackButton" destination="GMY-xf-pAM" id="Bq1-J0-iDE"/>
+                        <outlet property="goForwardButton" destination="idQ-ua-6P7" id="t27-uQ-6cQ"/>
+                        <outlet property="openInSafariButton" destination="vlc-ir-GWi" id="x86-4Y-O2n"/>
+                        <outlet property="reloadButton" destination="QY5-RS-4wc" id="hdb-ze-uFy"/>
                         <outlet property="webView" destination="2tJ-8T-LVY" id="V70-lq-GYh"/>
                     </connections>
                 </viewController>
@@ -191,8 +219,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="location" catalog="system" width="128" height="118"/>
+        <image name="safari" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
