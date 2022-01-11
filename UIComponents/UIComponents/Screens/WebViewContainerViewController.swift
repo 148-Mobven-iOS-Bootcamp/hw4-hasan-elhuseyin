@@ -26,15 +26,7 @@ class WebViewContainerViewController: UIViewController {
     func configureWebView() {
         guard let url = URL(string: urlString) else { return }
         let urlRequest = URLRequest(url: url)
-
-        let preferences = WKPreferences()
-        preferences.javaScriptCanOpenWindowsAutomatically = false
-
-        let configuration = WKWebViewConfiguration()
-        configuration.preferences = preferences
-//        webView.configuration = configuration
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
+        
         webView.allowsBackForwardNavigationGestures = true
         webView.addObserver(self,
                             forKeyPath: #keyPath(WKWebView.isLoading),
@@ -82,13 +74,6 @@ class WebViewContainerViewController: UIViewController {
     }
 }
 
-extension WebViewContainerViewController: WKNavigationDelegate {
-
-}
-
-extension WebViewContainerViewController: WKUIDelegate {
-
-}
 
 private let htmlString = """
 <!doctype html>
@@ -123,7 +108,7 @@ private let htmlString = """
     <body>
         <div class="container">
             <div class="element">
-                <h3>Hello, WKWebView!</h3><br>
+                <h3>Hello, HTML!</h3><br>
                 This HTML page is using "AmericanTypeWriter" font.<br><br>
                 To go back to main page tap <a href="https://www.google.com">here.</a>
             </div>
