@@ -85,10 +85,16 @@
                                             <action selector="goBackButtonTapped:" destination="8R7-g3-9b9" id="zJG-3a-3mX"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="geo-B6-XxL"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qIC-a4-GYv"/>
                                     <barButtonItem title="goForward" image="arrow.forward" catalog="system" id="idQ-ua-6P7">
                                         <connections>
                                             <action selector="goForwardButtonTapped:" destination="8R7-g3-9b9" id="ss4-xD-gRe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="geo-B6-XxL"/>
+                                    <barButtonItem title="HTML" id="RwG-58-que">
+                                        <connections>
+                                            <action selector="htmlButtonTapped:" destination="8R7-g3-9b9" id="3jS-hu-pMz"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="LNW-FZ-6iT"/>
