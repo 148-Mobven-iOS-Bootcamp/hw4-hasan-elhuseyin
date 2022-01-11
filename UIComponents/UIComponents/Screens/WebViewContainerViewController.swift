@@ -65,11 +65,11 @@ class WebViewContainerViewController: UIViewController {
     }
     
     @IBAction func goBackButtonTapped(_ sender: UIBarButtonItem) {
-        
+        webView.goBack()
     }
     
     @IBAction func goForwardButtonTapped(_ sender: UIBarButtonItem) {
-        
+        webView.goForward()
     }
     
     @IBAction func openInSafariButtonTapped(_ sender: UIBarButtonItem) {
