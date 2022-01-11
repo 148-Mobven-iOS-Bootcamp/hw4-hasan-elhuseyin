@@ -123,6 +123,10 @@
                     <navigationItem key="navigationItem" id="x9X-Is-1KR"/>
                     <connections>
                         <outlet property="activityIndicator" destination="hej-Yj-pi0" id="0OO-G2-3b8"/>
+                        <outlet property="goBackButton" destination="GMY-xf-pAM" id="Bq1-J0-iDE"/>
+                        <outlet property="goForwardButton" destination="idQ-ua-6P7" id="t27-uQ-6cQ"/>
+                        <outlet property="openInSafariButton" destination="vlc-ir-GWi" id="x86-4Y-O2n"/>
+                        <outlet property="reloadButton" destination="QY5-RS-4wc" id="hdb-ze-uFy"/>
                         <outlet property="webView" destination="2tJ-8T-LVY" id="V70-lq-GYh"/>
                     </connections>
                 </viewController>

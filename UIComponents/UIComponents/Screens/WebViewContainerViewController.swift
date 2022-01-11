@@ -9,20 +9,24 @@ import UIKit
 import WebKit
 
 class WebViewContainerViewController: UIViewController {
-
+    
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    @IBOutlet weak var reloadButton: UIBarButtonItem!
+    @IBOutlet weak var goBackButton: UIBarButtonItem!
+    @IBOutlet weak var goForwardButton: UIBarButtonItem!
+    @IBOutlet weak var openInSafariButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         configureWebView()
         configureActivityIndicator()
     }
-
+    
     var urlString = "https://www.google.com"
-
+    
     func configureWebView() {
         guard let url = URL(string: urlString) else { return }
         let urlRequest = URLRequest(url: url)
@@ -34,27 +38,53 @@ class WebViewContainerViewController: UIViewController {
                             context: nil)
         webView.load(urlRequest)
     }
-
+    
     func configureActivityIndicator() {
         activityIndicator.style = .large
         activityIndicator.color = .red
         activityIndicator.hidesWhenStopped = true
     }
-
+    
     override func observeValue(forKeyPath keyPath: String?,
                                of object: Any?,
                                change: [NSKeyValueChangeKey : Any]?,
                                context: UnsafeMutableRawPointer?) {
-
+        
         if keyPath == "loading" {
             webView.isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+            if webView.url == URL(string: "https://www.google.com/"){ toggleUIBarButtonItemsOn() }
+            checkGoBackButton()
+            checkGoForwardButton()
         }
-
+        
     }
-
+    
+    func toggleUIBarButtonItemsOff() {
+        reloadButton.isEnabled = false
+        goBackButton.isEnabled = false
+        goForwardButton.isEnabled = false
+        openInSafariButton.isEnabled = false
+    }
+    
+    func toggleUIBarButtonItemsOn() {
+        reloadButton.isEnabled = true
+        goBackButton.isEnabled = true
+        goForwardButton.isEnabled = true
+        openInSafariButton.isEnabled = true
+    }
+    
+    func checkGoBackButton() {
+        if webView.canGoBack { goBackButton.isEnabled = true }
+        else { goBackButton.isEnabled = false }
+    }
+    
+    func checkGoForwardButton() {
+        if webView.canGoForward { goForwardButton.isEnabled = true }
+        else { goForwardButton.isEnabled = false }
+    }
+    
     @IBAction func reloadButtonTapped(_ sender: UIBarButtonItem) {
         webView.reload()
-        
     }
     
     @IBAction func goBackButtonTapped(_ sender: UIBarButtonItem) {
@@ -71,6 +101,7 @@ class WebViewContainerViewController: UIViewController {
     
     @IBAction func htmlButtonTapped(_ sender: UIBarButtonItem) {
         webView.loadHTMLString(htmlString, baseURL: nil)
+        toggleUIBarButtonItemsOff()
     }
 }
 
