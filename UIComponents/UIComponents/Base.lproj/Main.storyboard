@@ -79,6 +79,24 @@
                                             <action selector="reloadButtonTapped:" destination="8R7-g3-9b9" id="xfH-1m-Kq8"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pEW-oC-oAG"/>
+                                    <barButtonItem title="goBack" image="arrow.backward" catalog="system" id="GMY-xf-pAM">
+                                        <connections>
+                                            <action selector="goBackButtonTapped:" destination="8R7-g3-9b9" id="zJG-3a-3mX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="geo-B6-XxL"/>
+                                    <barButtonItem title="goForward" image="arrow.forward" catalog="system" id="idQ-ua-6P7">
+                                        <connections>
+                                            <action selector="goForwardButtonTapped:" destination="8R7-g3-9b9" id="ss4-xD-gRe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LNW-FZ-6iT"/>
+                                    <barButtonItem title="openInSafari" image="safari" catalog="system" id="vlc-ir-GWi">
+                                        <connections>
+                                            <action selector="openInSafariButtonTapped:" destination="8R7-g3-9b9" id="PgJ-3G-plK"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -191,8 +209,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="arrow.forward" catalog="system" width="128" height="98"/>
         <image name="location" catalog="system" width="128" height="118"/>
+        <image name="safari" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
