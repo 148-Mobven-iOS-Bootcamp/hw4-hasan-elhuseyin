@@ -73,7 +73,7 @@ class WebViewContainerViewController: UIViewController {
     }
     
     @IBAction func openInSafariButtonTapped(_ sender: UIBarButtonItem) {
-        
+        UIApplication.shared.open(webView.url!)
     }
 }
 
