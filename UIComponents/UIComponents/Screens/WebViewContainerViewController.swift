@@ -10,6 +10,7 @@ import WebKit
 
 class WebViewContainerViewController: UIViewController {
     
+    // MARK: - IBOtlets
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
@@ -17,6 +18,7 @@ class WebViewContainerViewController: UIViewController {
     @IBOutlet weak var goForwardButton: UIBarButtonItem!
     @IBOutlet weak var openInSafariButton: UIBarButtonItem!
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,13 +27,18 @@ class WebViewContainerViewController: UIViewController {
         configureActivityIndicator()
     }
     
+    // MARK: - Variables
     var urlString = "https://www.google.com"
     
+    // MARK: - Functions
+    
+    // Configure web view
     func configureWebView() {
         guard let url = URL(string: urlString) else { return }
         let urlRequest = URLRequest(url: url)
-        
+        // Allow back and forward navigation gestures
         webView.allowsBackForwardNavigationGestures = true
+        // Add an observer to WKWebView.isLoading
         webView.addObserver(self,
                             forKeyPath: #keyPath(WKWebView.isLoading),
                             options: .new,
@@ -39,33 +46,41 @@ class WebViewContainerViewController: UIViewController {
         webView.load(urlRequest)
     }
     
+    // Configure Activity Indicator
     func configureActivityIndicator() {
         activityIndicator.style = .large
         activityIndicator.color = .red
         activityIndicator.hidesWhenStopped = true
     }
     
+    // observeValue function
     override func observeValue(forKeyPath keyPath: String?,
                                of object: Any?,
                                change: [NSKeyValueChangeKey : Any]?,
                                context: UnsafeMutableRawPointer?) {
         
         if keyPath == "loading" {
+            // Starting and stopping activityIndicator animations
             webView.isLoading ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
+            
+            // Toggle the UIBarButtonItems back 'ON' if the url is "google.com"
             if webView.url == URL(string: "https://www.google.com/"){ toggleUIBarButtonItemsOn() }
+            
+            // Setting the state of goBack and goForward buttons
             checkGoBackButton()
             checkGoForwardButton()
         }
         
     }
     
+    // A function to set all the UIBarButtonItems .isEnabled state to 'false'
     func toggleUIBarButtonItemsOff() {
         reloadButton.isEnabled = false
         goBackButton.isEnabled = false
         goForwardButton.isEnabled = false
         openInSafariButton.isEnabled = false
     }
-    
+    // A function to set all the UIBarButtonItems .isEnabled state to 'true'
     func toggleUIBarButtonItemsOn() {
         reloadButton.isEnabled = true
         goBackButton.isEnabled = true
@@ -73,39 +88,47 @@ class WebViewContainerViewController: UIViewController {
         openInSafariButton.isEnabled = true
     }
     
+    // If the webView can go back set the button state to 'true', else: set it to 'false'
     func checkGoBackButton() {
         if webView.canGoBack { goBackButton.isEnabled = true }
         else { goBackButton.isEnabled = false }
     }
     
+    // If the webView can go forward set the button state to 'true', else: set it to 'false'
     func checkGoForwardButton() {
         if webView.canGoForward { goForwardButton.isEnabled = true }
         else { goForwardButton.isEnabled = false }
     }
     
+    // MARK: - IBActions
     @IBAction func reloadButtonTapped(_ sender: UIBarButtonItem) {
-        webView.reload()
+        webView.reload() // Relaod webView
     }
     
     @IBAction func goBackButtonTapped(_ sender: UIBarButtonItem) {
-        webView.goBack()
+        webView.goBack() // Go back to the previous page
     }
     
     @IBAction func goForwardButtonTapped(_ sender: UIBarButtonItem) {
-        webView.goForward()
+        webView.goForward() // Go forward to the next page
     }
     
     @IBAction func openInSafariButtonTapped(_ sender: UIBarButtonItem) {
-        UIApplication.shared.open(webView.url!)
+        UIApplication.shared.open(webView.url!) // Open current URL in Safari
     }
     
     @IBAction func htmlButtonTapped(_ sender: UIBarButtonItem) {
+        // Load htmlString and display it
         webView.loadHTMLString(htmlString, baseURL: nil)
+        // When htmlString is loaded; toggle all the bar buttons states off
         toggleUIBarButtonItemsOff()
     }
 }
 
+// MARK: - HTML String
 
+// HTML string that will be loaded.
+// This HTML uses the custom font 'AmericanTypeWriter'
 private let htmlString = """
 <!doctype html>
 <meta charset="utf-8"/>
