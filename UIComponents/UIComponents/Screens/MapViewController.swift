@@ -121,8 +121,4 @@ extension MapViewController: CLLocationManagerDelegate {
         mapView.setCenter(coordinate, animated: true)
     }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationPermission()
-    }
-    
 }
