@@ -18,6 +18,10 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Show app section in settings app
+        // UserDefaults.standard.register(defaults: [String : Any]())
+        
         // Check the location permission
         checkLocationPermission()
         // Add a long gesture recognizer
@@ -119,6 +123,11 @@ extension MapViewController: CLLocationManagerDelegate {
         print("longitude: \(coordinate.longitude)")
         
         mapView.setCenter(coordinate, animated: true)
+    }
+    
+    // If 'didFailWithError'; run checkLocationPermission()
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        checkLocationPermission()
     }
     
 }
