@@ -111,6 +111,7 @@ class MapViewController: UIViewController {
 
 // MARK: - Extensions
 
+// Extension to update the map center when the location is updated
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let coordinate = locations.first?.coordinate else { return }
