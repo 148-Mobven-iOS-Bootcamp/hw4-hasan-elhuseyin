@@ -1,11 +1,11 @@
-# HW4
+# hw4-Hasan-Elhüseyin
 
-## Ödev 1: 
-Bu hafta geliştirdiğimiz projedeki webView ekranında 
-- toolBar’a goForward, goBackward ve open in safari butonları ve özellikleri eklenecektir.
-- string içerisine yazılmış bir html kodunun gösterilmesi sağlanacaktır.
-- default bulunan font değiştirilerek html’in farklı bir fontta gösterilmesi sağlanacaktır. 
+## Homework-1
 
-## Ödev 2: 
-Bu hafta geliştirdiğimiz projedeki mapView ekranında
-- locationAuthorization denied veya restricted ise kullanıcıya extension ile yazılmış bir alertView gösterilecektir. alertView’da cancel ve go to settings butonları bulunacaktır. go to settings butonuna basıldığında kullanıcı geliştirdiğimiz uygulama ayarları ekranına yönlendirilecektir.
+- Add 'goForward, goBackward and open in Safari' buttons to UIBar ✅
+- Display HTML code that is stored in a String ✅
+- Change the default used font in the HTML file to a custom font (I used 'AmericanTypeWriter') ✅
+
+## Homework-2
+
+- When 'locationAuthorization' is set to: .denied or .restricted; show a popup message alert that has two buttons, A cancel button and a Go to settings button that redirects the user to the app's settings section in the settings app ✅
