@@ -14,6 +14,7 @@
 		23097ED3276F330F00AC8761 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23097ED1276F330F00AC8761 /* LaunchScreen.storyboard */; };
 		238A332F278AE3100070B74E /* WebViewContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238A332E278AE3100070B74E /* WebViewContainerViewController.swift */; };
 		238A3331278AF6A80070B74E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238A3330278AF6A80070B74E /* MapViewController.swift */; };
+		9F6A3D7B2792077A00C657A1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9F6A3D7A2792077A00C657A1 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		23097ED4276F330F00AC8761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		238A332E278AE3100070B74E /* WebViewContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContainerViewController.swift; sourceTree = "<group>"; };
 		238A3330278AF6A80070B74E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9F6A3D7A2792077A00C657A1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		23097EBA276F330D00AC8761 = {
 			isa = PBXGroup;
 			children = (
+				9F6A3D7A2792077A00C657A1 /* Settings.bundle */,
 				23097EC5276F330D00AC8761 /* UIComponents */,
 				23097EC4276F330D00AC8761 /* Products */,
 			);
@@ -136,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F6A3D7B2792077A00C657A1 /* Settings.bundle in Resources */,
 				23097ED3276F330F00AC8761 /* LaunchScreen.storyboard in Resources */,
 				23097ED0276F330F00AC8761 /* Assets.xcassets in Resources */,
 				23097ECE276F330D00AC8761 /* Main.storyboard in Resources */,
