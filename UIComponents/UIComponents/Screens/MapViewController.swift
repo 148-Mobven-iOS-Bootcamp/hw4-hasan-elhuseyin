@@ -10,49 +10,73 @@ import MapKit
 
 class MapViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Check the location permission
         checkLocationPermission()
+        // Add a long gesture recognizer
         addLongGestureRecognizer()
     }
     
+    // MARK: - Variables
+    
+    // Create a CLLocationManager object and set its delegate to self
+    private lazy var locationManager: CLLocationManager = {
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        return locationManager
+    }()
+    
     // MARK: - Functions
     
+    // Add long gesture recognizer function
     func addLongGestureRecognizer() {
         let longPressGesture = UILongPressGestureRecognizer(target: self,
                                                             action: #selector(handleLongPressGesture(_ :)))
         self.view.addGestureRecognizer(longPressGesture)
     }
     
+    // Selector objective-c function for addLongGestureRecognizer()
     @objc func handleLongPressGesture(_ sender: UILongPressGestureRecognizer) {
+        // Get the location from mapView
         let point = sender.location(in: mapView)
+        // Convert the location to coordinates
         let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
-        
+        // Create MKPointAnnotation object
         let annotation = MKPointAnnotation()
+        // Set the annotation coordinate to the coordinate we got from mapView
         annotation.coordinate = coordinate
+        // Set the annotation title
         annotation.title = "Pinned"
+        // Add the annotation to mapView
         mapView.addAnnotation(annotation)
     }
     
+    // Function to check the location permission
     func checkLocationPermission() {
         switch self.locationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse, .authorized:
+            // If the location permission is authorized; request the location
             locationManager.requestLocation()
         case .denied, .restricted:
-            //popup gosterecegiz. go to settings butonuna basildiginda
-            //kullaniciyi uygulamamizin settings sayfasina gonder
+            // If the location permission is denied or restricted; show a popup and redirect to the settings app
             popupAlertController()
             break
         case .notDetermined:
+            // If the location permission is not determined; request for authorization
             locationManager.requestWhenInUseAuthorization()
         @unknown default:
             fatalError()
         }
     }
     
+    // Function to show a popup alert controller that redirects the user to the settings app
     func popupAlertController() {
         // Create UIAlertController object
         let alertController = UIAlertController(title: "Location Permission Required",
@@ -76,15 +100,10 @@ class MapViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    private lazy var locationManager: CLLocationManager = {
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
-        return locationManager
-    }()
-    
     // MARK: - IBActions
     
     @IBAction func showCurrentLocationTapped(_ sender: UIButton) {
+        // Request the location when this button is tapped
         locationManager.requestLocation()
     }
     
